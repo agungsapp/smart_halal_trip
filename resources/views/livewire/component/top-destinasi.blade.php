@@ -1,6 +1,6 @@
     <!-- ============================================-->
     <!-- <section> begin ============================-->
-    <section class="pt-5" id="destination">
+    <section class="pt-5 halal-pattern2" id="destination">
 
       <div class="container">
         <div class="position-absolute start-100 bottom-0 translate-middle-x d-none d-xl-block ms-xl-n4"><img

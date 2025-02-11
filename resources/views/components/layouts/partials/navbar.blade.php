@@ -1,5 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top py-5 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
-  <div class="container"><a class="navbar-brand" href="index.html"><img src="{{ asset('images') }}/logo.png" height="34"
+<nav class="navbar navbar-expand-lg navbar-light bg-success fixed-top py-5 d-block"
+  data-navbar-on-scroll="data-navbar-on-scroll">
+  <div class="container"><a class="navbar-brand" href="index.html"><img src="{{ asset('images') }}/logo2.png" height="44"
         alt="logo" /></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
@@ -9,9 +10,13 @@
         <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#rekomendasi">Cari
             Rekomendasi</a>
         </li>
-        <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#about">Tentang
-            Kami</a>
+        <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page"
+            href="{{ route('wisata') }}">Daftar Wisata</a>
         </li>
+        <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page"
+            href="{{ route('restoran') }}">Daftar Restoran</a>
+        </li>
+
 
         <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page"
             href="#testimonial">Testimonial</a></li>

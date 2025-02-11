@@ -14,9 +14,9 @@ class JenisSeeder extends Seeder
     public function run(): void
     {
         $items = [
-            ['nama' => 'swasta'],
-            ['nama' => 'desa'],
-            ['nama' => 'kemenhut'],
+            ['nama' => 'alam'],
+            ['nama' => 'pantai'],
+            ['nama' => 'hutan'],
 
         ];
 
