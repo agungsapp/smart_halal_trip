@@ -17,6 +17,7 @@ class JenisSeeder extends Seeder
             ['nama' => 'alam'],
             ['nama' => 'pantai'],
             ['nama' => 'hutan'],
+            ['nama' => 'cagar budaya'],
 
         ];
 
