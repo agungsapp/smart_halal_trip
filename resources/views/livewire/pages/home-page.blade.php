@@ -26,14 +26,17 @@
   </section>
 
 
+  {{-- cari lokasi --}}
+  @livewire('component.cari-lokasi')
+
 
   {{-- cari rekomendasi --}}
-  @livewire('component.cari-rekomendasi')
+  {{-- @livewire('component.cari-rekomendasi') --}}
 
   {{-- top destinasi wisata --}}
   @livewire('component.top-destinasi')
   {{-- map lokasi komponen --}}
-  {{-- @livewire('component.map-lokasi') --}}
+  @livewire('component.map-lokasi')
 
 
   <!-- <section> begin ============================-->

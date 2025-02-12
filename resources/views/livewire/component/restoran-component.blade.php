@@ -20,8 +20,7 @@
         @forelse ($restaurants as $restaurant)
           <div class="col-md-4 mb-4">
             <div class="card overflow-hidden shadow">
-              <img class="card-img-top" src="{{ asset('user') }}/assets/img/dest/dest1.jpg"
-                alt="{{ $restaurant->nama }}" />
+              <img class="card-img-top" src="{{ asset('images/restaurant.jpg') }}" alt="{{ $restaurant->nama }}" />
               <div class="card-body py-4 px-3">
                 <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
                   <h4 class="text-secondary fw-medium">

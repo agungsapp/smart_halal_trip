@@ -53,7 +53,7 @@ class DataSeederCSV extends Seeder
                 DB::table('wisatas')->insert([
                     'id' => $data[0],
                     'nama' => $data[1],
-                    'id_jenis' => 1,
+                    'id_jenis' => $data[5],
                     'id_kota' => $kota->id,
                     'alamat' => $data[2] ?? 'N/A',
                     'lat' => $data[3] ?? '0', // Default value jika latitude kosong
