@@ -17,6 +17,8 @@
         </div>
         <div class="row">
 
+          {{-- test --}}
+
 
           @forelse ($wisatas as $wisata)
             <div class="col-md-4 mb-4">
