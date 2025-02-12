@@ -10,8 +10,10 @@
 
           @if (!empty($lokasi))
             <p>beberapa lokasi terdekat <strong>{{ $lokasi['description'] }}</strong></p>
+            <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Rekomendasi Untukmu</h3>
+          @else
+            <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Top Destinasi</h3>
           @endif
-          <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Top Destinasi</h3>
         </div>
         <div class="row">
 

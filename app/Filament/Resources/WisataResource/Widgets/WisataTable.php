@@ -12,6 +12,7 @@ class WisataTable extends BaseWidget
 {
     protected int | string | array $columnSpan = 'full'; // Buat tabel lebar penuh
 
+
     public function table(Tables\Table $table): Tables\Table
     {
         return $table

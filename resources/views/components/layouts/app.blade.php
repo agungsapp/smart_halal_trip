@@ -101,7 +101,7 @@
 
 
     <div class="py-4 text-center bg-success">
-      <p class="mb-0 text-white fs--5 fw-bold">Gia Ayu Utami @ darmajaya </p>
+      <p class="mb-0 text-white fs--5 fw-bold">Gia Ayu Tari @ darmajaya </p>
     </div>
   </main>
   <!-- ===============================================-->
