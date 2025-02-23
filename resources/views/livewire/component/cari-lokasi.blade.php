@@ -11,9 +11,27 @@
     <div class="row">
       <div class="card bg-white shadow-sm">
         <div class="card-body">
+
+
+          {{-- di sini saya ingin ada multiple select untuk memilih jenis contoh : wisata alam, wisata budaya, makanan halal --}}
+
+
+          <!-- Template Blade -->
+          <div class="mb-3" wire:ignore>
+            <label for="jenis">Jenis (Optional)</label>
+            <select class="form-select" id="jenis" multiple="multiple">
+              <option value="">-- pilih jenis --</option>
+              @forelse ($jenis as $jeni)
+                <option value="{{ $jeni->id }}">{{ $jeni->nama }}</option>
+              @empty
+              @endforelse
+            </select>
+          </div>
+
+
           <!-- Input Pencarian -->
           <div class="mb-3">
-            <label for="search" class="form-label">Cari Lokasi</label>
+            <label for="search" class="form-label">Cari lokasi anda berada</label>
             <input type="text" wire:model="query" wire:input.debounce.500ms="searchLocations"
               class="form-control form-control-lg" placeholder="Ketik nama lokasi..." />
           </div>
@@ -37,8 +55,38 @@
     </div>
   </div><!-- end of .container-->
 
+  @push('scripts')
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+      document.addEventListener('livewire:initialized', () => {
+        // Inisialisasi Select2
+        let select2 = $('#jenis').select2({
+          placeholder: "Pilih jenis...",
+          allowClear: true
+        });
+
+        // Menangani perubahan nilai Select2
+        select2.on('change', function(e) {
+          let data = $(this).val();
+          @this.set('selectedJenis', data);
+        });
+
+        // Menangani reset dari Livewire
+        Livewire.on('resetJenis', () => {
+          $('#jenis').val(null).trigger('change');
+        });
+      });
+    </script>
+  @endpush
 
   <script>
+    $(document).ready(function() {
+      $('#jenis').select2();
+    });
     // Fungsi untuk menyimpan latitude dan longitude ke session browser dan Laravel
     function selectLocation(displayName, latitude, longitude) {
       console.log("Lokasi dipilih:", {

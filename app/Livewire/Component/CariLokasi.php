@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Component;
 
+use App\Models\Jenis;
 use App\Services\KnnService;
 use Livewire\Component;
 use Illuminate\Support\Facades\Http;
@@ -12,8 +13,15 @@ class CariLokasi extends Component
 {
     public $query = '';
     public $locations = [];
+    public $jenis;
+    public $selectedJenis = [];
 
     protected $listeners = ['saveLocationToSession'];
+
+    public function mount()
+    {
+        $this->jenis = Jenis::all();
+    }
 
     // Method untuk mencari lokasi berdasarkan query
     public function searchLocations()
@@ -90,6 +98,7 @@ class CariLokasi extends Component
 
         $knnService = new KnnService();
         $recommendedWisataIds = $knnService->cariRekomendasi($location['latitude'], $location['longitude']);
+        // dd($recommendedWisataIds);
         $this->dispatch(
             'recommendationUpdated',
             recommendedWisataIds: $recommendedWisataIds,

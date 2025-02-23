@@ -24,7 +24,7 @@ class TopDestinasi extends Component
     {
         // dd($recommendedWisataIds);
         $this->lokasi = Session::get('selectedLocation');
-        $this->wisatas = Wisata::whereIn('id', $recommendedWisataIds)
+        $this->wisatas = Wisata::with('jenis')->whereIn('id', $recommendedWisataIds)
             ->limit(3)
             ->get();
         // $this->wisatas = $wisatas;

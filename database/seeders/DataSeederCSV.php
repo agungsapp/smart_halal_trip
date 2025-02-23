@@ -21,7 +21,7 @@ class DataSeederCSV extends Seeder
 
     public function wisatas()
     {
-        $csvFilePath = public_path('seeder/data_wisata.csv');
+        $csvFilePath = public_path('seeder/wisatas.csv');
         if (($handle = fopen($csvFilePath, "r")) !== FALSE) {
             $header = fgetcsv($handle); // Baca header
 
@@ -53,7 +53,7 @@ class DataSeederCSV extends Seeder
                 DB::table('wisatas')->insert([
                     'id' => $data[0],
                     'nama' => $data[1],
-                    'id_jenis' => $data[5],
+                    'id_jenis' => !empty($data[5]) ? $data[5] : null,
                     'id_kota' => $kota->id,
                     'alamat' => $data[2] ?? 'N/A',
                     'lat' => $data[3] ?? '0', // Default value jika latitude kosong
