@@ -3,58 +3,83 @@
 namespace App\Services;
 
 use App\Models\Wisata;
+use Illuminate\Support\Facades\Log;
 use Phpml\Classification\KNearestNeighbors;
 use Phpml\Math\Distance\Euclidean;
 
 class KnnService
 {
     public $lat, $long;
+    private const MAX_DISTANCE = 10; // Batas maksimum jarak dalam kilometer
 
-    public function cariRekomendasi($lat, $long)
+    public function cariRekomendasi($lat, $long, $selectedJenis = [])
     {
         $this->lat = $lat;
         $this->long = $long;
 
-        $wisatas = Wisata::all();
-        $samples = [];
-        $labels = [];
-        $wisataMap = []; // Untuk menyimpan mapping jarak ke ID wisata
+        // Query dasar untuk wisata
+        $query = Wisata::query();
 
-        // Persiapkan data untuk KNN
-        foreach ($wisatas as $wisata) {
-            $samples[] = [(float)$wisata->lat, (float)$wisata->long];
-            $labels[] = $wisata->id;
+        // Filter berdasarkan jenis yang dipilih
+        if (!empty($selectedJenis)) {
+            $query->whereHas('jenis', function ($q) use ($selectedJenis) {
+                $q->whereIn('jenis.id', $selectedJenis);
+            });
         }
 
-        // Inisialisasi KNN dengan k=5 dan metrik jarak Euclidean
-        $knn = new KNearestNeighbors(5, new Euclidean());
+        $wisatas = $query->get();
 
-        // Hitung jarak untuk setiap titik
+        // Jika tidak ada wisata yang sesuai dengan filter
+        if ($wisatas->isEmpty()) {
+            return [];
+        }
+
+        $samples = [];
+        $labels = [];
         $distances = [];
-        $input = [(float)$this->lat, (float)$this->long];
 
-        foreach ($samples as $index => $sample) {
+        // Hitung jarak dan filter berdasarkan jarak maksimum
+        foreach ($wisatas as $wisata) {
             $distance = $this->calculateDistance(
-                $input[0],
-                $input[1],
-                $sample[0],
-                $sample[1]
+                (float)$this->lat,
+                (float)$this->long,
+                (float)$wisata->lat,
+                (float)$wisata->long
             );
-            $distances[$labels[$index]] = $distance;
+
+            // Hanya masukkan lokasi yang jaraknya dalam batas maksimum
+            if ($distance <= self::MAX_DISTANCE) {
+                $distances[$wisata->id] = $distance;
+                $samples[] = [(float)$wisata->lat, (float)$wisata->long];
+                $labels[] = $wisata->id;
+            }
+        }
+
+        // Jika tidak ada lokasi dalam radius yang ditentukan
+        if (empty($distances)) {
+            return [];
         }
 
         // Urutkan berdasarkan jarak terdekat
         asort($distances);
 
-        // Ambil 5 ID wisata terdekat
-        $recommendedWisataIds = array_slice(array_keys($distances), 0, 5);
+        // Ambil 5 ID wisata terdekat atau semua jika kurang dari 5
+        $limit = min(5, count($distances));
+        $recommendedWisataIds = array_slice(array_keys($distances), 0, $limit);
+
+        // Log untuk debugging
+        Log::info('Rekomendasi wisata:', [
+            'lokasi_user' => ['lat' => $this->lat, 'long' => $this->long],
+            'jarak_maksimum' => self::MAX_DISTANCE . ' km',
+            'jumlah_rekomendasi' => count($recommendedWisataIds),
+            'detail_jarak' => array_slice($distances, 0, $limit, true)
+        ]);
 
         return $recommendedWisataIds;
     }
 
     private function calculateDistance($lat1, $lon1, $lat2, $lon2)
     {
-        // Menggunakan Haversine formula untuk menghitung jarak dalam kilometer
         $earthRadius = 6371; // Radius Bumi dalam kilometer
 
         $latDelta = deg2rad($lat2 - $lat1);

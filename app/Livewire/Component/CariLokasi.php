@@ -16,44 +16,55 @@ class CariLokasi extends Component
     public $jenis;
     public $selectedJenis = [];
 
-    protected $listeners = ['saveLocationToSession'];
+    protected $listeners = [
+        'saveLocationToSession',
+        'resetJenis'
+    ];
 
     public function mount()
     {
         $this->jenis = Jenis::all();
     }
 
-    // Method untuk mencari lokasi berdasarkan query
+    public function resetJenis()
+    {
+        $this->selectedJenis = [];
+
+        // Jika ada lokasi yang sudah dipilih, update rekomendasi
+        $location = Session::get('selectedLocation');
+        if ($location) {
+            $this->cariRekomendasi($location);
+        }
+    }
+
+    public function updatedSelectedJenis($value)
+    {
+        // Ketika jenis berubah dan ada lokasi yang sudah dipilih,
+        // update rekomendasi
+        $location = Session::get('selectedLocation');
+        if ($location) {
+            $this->cariRekomendasi($location);
+        }
+    }
+
     public function searchLocations()
     {
         if (strlen($this->query) > 2) {
-            // URL dan parameter untuk Nominatim API
             $url = 'https://nominatim.openstreetmap.org/search';
             $params = [
                 'q' => $this->query,
                 'format' => 'json',
-                'limit' => 5, // Batasi hasil pencarian
-                'countrycodes' => 'id', // Batasi hasil ke Indonesia
+                'limit' => 5,
+                'countrycodes' => 'id',
             ];
 
-            // Debugging: Cetak URL dan parameter ke log
-            Log::info('Nominatim API URL:', [$url]);
-            Log::info('Nominatim API Params:', $params);
-
-            // Kirim permintaan HTTP dengan header User-Agent
             $response = Http::withHeaders([
                 'User-Agent' => 'YourAppName/1.0 (+https://yourwebsite.com)',
             ])->get($url, $params);
 
-            // Debugging: Cek status respons
             if ($response->successful()) {
                 $data = $response->json();
-
-                // Debugging: Cetak respons dari API ke log
-                Log::info('Nominatim API Response:', $data);
-
                 if (!empty($data)) {
-                    // Proses data lokasi
                     $this->locations = collect($data)->map(function ($item) {
                         return [
                             'display_name' => $item['display_name'] ?? 'Unknown Location',
@@ -62,30 +73,22 @@ class CariLokasi extends Component
                         ];
                     })->toArray();
                 } else {
-                    // Jika tidak ada data, kosongkan lokasi
                     $this->locations = [];
                 }
             } else {
-                // Debugging: Cetak error jika respons gagal
                 Log::error('Nominatim API Error:', [
                     'status' => $response->status(),
                     'body' => $response->body(),
                 ]);
-
-                // Kosongkan lokasi jika terjadi error
                 $this->locations = [];
             }
         } else {
-            // Jika query kurang dari 3 karakter, kosongkan lokasi
             $this->locations = [];
         }
     }
 
-    // Method untuk menyimpan lokasi ke session Laravel
     public function saveLocationToSession($location)
     {
-        // dd($location);
-        // Simpan lokasi ke session Laravel
         Session::put('selectedLocation', $location);
         Log::info('Lokasi disimpan ke session Laravel:', $location);
 
@@ -95,10 +98,13 @@ class CariLokasi extends Component
 
     public function cariRekomendasi($location)
     {
-
         $knnService = new KnnService();
-        $recommendedWisataIds = $knnService->cariRekomendasi($location['latitude'], $location['longitude']);
-        // dd($recommendedWisataIds);
+        $recommendedWisataIds = $knnService->cariRekomendasi(
+            $location['latitude'],
+            $location['longitude'],
+            $this->selectedJenis // Kirim jenis yang dipilih ke KNN Service
+        );
+
         $this->dispatch(
             'recommendationUpdated',
             recommendedWisataIds: $recommendedWisataIds,
@@ -106,13 +112,6 @@ class CariLokasi extends Component
             userLong: $location['longitude']
         );
     }
-
-
-    // public function mount()
-    // {
-    //     $lokasi = Session::get('selectedLocation');
-    //     dd($lokasi);
-    // }
 
     public function render()
     {

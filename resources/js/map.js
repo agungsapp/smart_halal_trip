@@ -135,7 +135,7 @@ const createPopupContent = (location, userCoords) => {
     const div = document.createElement('div');
     div.className = 'ol-popup bg-white rounded shadow-lg p-3';
     div.innerHTML = `
-        <h5 class="font-bold mb-2">${location.nama}</h5>
+        <h3 class="font-bold mb-2">${location.nama}</h3>
         <p class="text-sm mb-2">${location.alamat || 'Alamat tidak tersedia'}</p>
         <p class="text-sm mb-2">Jarak: ${distance} km</p>
         <div class="flex gap-2">
