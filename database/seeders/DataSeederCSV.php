@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Kota;
+use App\Models\Restaurant;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -17,11 +18,80 @@ class DataSeederCSV extends Seeder
     public function run(): void
     {
         $this->wisatas();
+        $this->restaurants();
     }
+
+
+    public function restaurants()
+    {
+        $csvFilePath =
+            public_path('seeder/resto.csv');
+        if (($handle = fopen($csvFilePath, "r")) !== FALSE) {
+            $header = fgetcsv($handle); // Baca header (nama, alamat, lat, long)
+
+            while (($data = fgetcsv($handle)) !== FALSE) {
+                // Pastikan jumlah kolom sesuai
+                if (count($data) < 4) {
+                    Log::warning('Skipping incomplete row in restaurants:', $data);
+                    continue;
+                }
+
+                // Ekstrak nama kota dari alamat dengan logika khusus
+                $alamat = $data[1];
+                $namaKota = 'Unknown'; // Default
+
+                try {
+                    $alamatParts = array_map('trim', explode(',', $alamat));
+
+                    // Cari pola "Bandar Lampung, Lampung" atau sejenisnya
+                    foreach ($alamatParts as $index => $part) {
+                        if (strtolower($part) === 'lampung' && $index > 0) {
+                            $namaKota = $alamatParts[$index - 1];
+                            break;
+                        }
+                    }
+
+                    // Jika tidak ada "Lampung" sebagai provinsi, ambil bagian pertama yang valid
+                    if ($namaKota === 'Unknown' && !empty($alamatParts[0])) {
+                        $namaKota = $alamatParts[0];
+                        // Hindari nama restoran sebagai nama kota
+                        if (strtolower($namaKota) === strtolower($data[0])) {
+                            $namaKota = 'Unknown';
+                        }
+                    }
+                } catch (\Throwable $th) {
+                    Log::error('Error parsing address for restaurant: ' . $alamat, ['error' => $th->getMessage()]);
+                }
+
+                // Cari atau buat data kota
+                $kota = Kota::firstOrCreate(
+                    ['nama' => $namaKota],
+                    [
+                        'created_at' => Carbon::now(),
+                        'updated_at' => Carbon::now()
+                    ]
+                );
+
+                // Insert data restaurant
+                Restaurant::create([
+                    'nama' => $data[0],
+                    'id_jenis' => 13, // Jika ada kolom jenis di CSV, sesuaikan di sini
+                    'id_kota' => $kota->id,
+                    'alamat' => $data[1] ?? 'N/A',
+                    'lat' => $data[2] ?? '0',
+                    'long' => $data[3] ?? '0',
+                ]);
+            }
+
+            fclose($handle);
+        }
+    }
+
+
 
     public function wisatas()
     {
-        $csvFilePath = public_path('seeder/wisatas.csv');
+        $csvFilePath = public_path('seeder/data_wisata.csv');
         if (($handle = fopen($csvFilePath, "r")) !== FALSE) {
             $header = fgetcsv($handle); // Baca header
 
@@ -66,6 +136,8 @@ class DataSeederCSV extends Seeder
             fclose($handle);
         }
     }
+
+
     // public function wisatas()
     // {
     //     $csvFilePath = public_path('seeder/wisatas.csv');

@@ -26,6 +26,7 @@ class JenisSeeder extends Seeder
             ['nama' => 'Restoran & Kuliner Halal'], // 10
             ['nama' => 'Hotel & Penginapan Syariah'], // 11
             ['nama' => 'Wisata Petualangan & Olahraga'], // 12
+            ['nama' => 'Wisata Kuliner'], // 13
         ];
 
 

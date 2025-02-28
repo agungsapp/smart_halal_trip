@@ -20,7 +20,7 @@ import Overlay from 'ol/Overlay';
 window.ol = {
     Map, View, TileLayer, OSM,
     proj: { fromLonLat, toLonLat },
-    Feature, 
+    Feature,
     geom: { Point, LineString },
     source: { Vector: VectorSource, OSM },
     layer: { Vector: VectorLayer, Tile: TileLayer },
@@ -78,11 +78,11 @@ const calculateDistance = (coord1, coord2) => {
     const R = 6371; // Earth's radius in km
     const dLat = (coord2[1] - coord1[1]) * Math.PI / 180;
     const dLon = (coord2[0] - coord1[0]) * Math.PI / 180;
-    const a = 
-        Math.sin(dLat/2) * Math.sin(dLat/2) +
-        Math.cos(coord1[1] * Math.PI / 180) * Math.cos(coord2[1] * Math.PI / 180) * 
-        Math.sin(dLon/2) * Math.sin(dLon/2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(coord1[1] * Math.PI / 180) * Math.cos(coord2[1] * Math.PI / 180) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return (R * c).toFixed(2);
 };
 
@@ -90,13 +90,13 @@ const calculateDistance = (coord1, coord2) => {
 const fetchRoute = async (start, end) => {
     const startCoord = toLonLat(start);
     const endCoord = toLonLat(end);
-    
+
     try {
         const response = await fetch(
             `https://router.project-osrm.org/route/v1/driving/${startCoord[0]},${startCoord[1]};${endCoord[0]},${endCoord[1]}?overview=full&geometries=geojson`
         );
         const data = await response.json();
-        
+
         if (data.routes && data.routes[0]) {
             return data.routes[0].geometry.coordinates.map(coord => fromLonLat(coord));
         }
@@ -153,7 +153,7 @@ const createPopupContent = (location, userCoords) => {
 };
 
 // Rest of the code remains the same, but update the click handler
-window.initMap = function(userLocation = { lat: -5.5575313, lng: 105.2418745 }, recommendedLocations = []) {
+window.initMap = function (userLocation = { lat: -5.5575313, lng: 105.2418745 }, recommendedLocations = []) {
     console.log("✅ Memulai inisialisasi peta...", userLocation);
 
     if (!document.getElementById('map')) {
@@ -183,11 +183,11 @@ window.initMap = function(userLocation = { lat: -5.5575313, lng: 105.2418745 }, 
     // Create vector sources and layers
     currentVectorSource = new VectorSource();
     routeVectorSource = new VectorSource();
-    
+
     const vectorLayer = new VectorLayer({
         source: currentVectorSource
     });
-    
+
     const routeLayer = new VectorLayer({
         source: routeVectorSource
     });
@@ -210,8 +210,8 @@ window.initMap = function(userLocation = { lat: -5.5575313, lng: 105.2418745 }, 
     });
 
     // Add click handler for features
-    currentMap.on('click', async function(evt) {
-        const feature = currentMap.forEachFeatureAtPixel(evt.pixel, function(feature) {
+    currentMap.on('click', async function (evt) {
+        const feature = currentMap.forEachFeatureAtPixel(evt.pixel, function (feature) {
             return feature;
         });
 
@@ -219,7 +219,7 @@ window.initMap = function(userLocation = { lat: -5.5575313, lng: 105.2418745 }, 
             const coordinates = feature.getGeometry().getCoordinates();
             const properties = feature.get('properties');
             const userCoords = userMarker.getGeometry().getCoordinates();
-            
+
             // Display popup
             currentPopup.setPosition(coordinates);
             popupContainer.innerHTML = '';
@@ -252,7 +252,7 @@ window.initMap = function(userLocation = { lat: -5.5575313, lng: 105.2418745 }, 
 
     currentMap.addInteraction(modify);
 
-    modify.on('modifyend', function(event) {
+    modify.on('modifyend', function (event) {
         const feature = event.features.getArray()[0];
         const coords = feature.getGeometry().getCoordinates();
         const [lng, lat] = toLonLat(coords);
@@ -286,12 +286,12 @@ const updateUserMarkerPosition = (lat, lng) => {
 
     const newCoords = fromLonLat([parseFloat(lng), parseFloat(lat)]);
     userMarker.getGeometry().setCoordinates(newCoords);
-    
+
     // Clear existing route when user position updates
     if (routeVectorSource) {
         routeVectorSource.clear();
     }
-    
+
     if (currentMap) {
         currentMap.getView().setCenter(newCoords);
         currentMap.getView().setZoom(14); // Optional: adjust zoom level
@@ -346,7 +346,7 @@ document.addEventListener('livewire:init', () => {
         const { userLocation, recommendedLocations } = data[0];
 
         console.log("Lokasi rekomendasi:", recommendedLocations);
-        
+
         if (currentMap && userMarker) {
             updateUserMarkerPosition(userLocation.lat, userLocation.lng);
             updateRecommendedMarkers(recommendedLocations);
@@ -376,7 +376,7 @@ const cleanupMap = () => {
     if (currentMap) {
         // Remove event listeners
         window.removeEventListener('resize', handleMapResize);
-        
+
         // Clear vector sources
         if (currentVectorSource) {
             currentVectorSource.clear();
@@ -384,12 +384,12 @@ const cleanupMap = () => {
         if (routeVectorSource) {
             routeVectorSource.clear();
         }
-        
+
         // Remove overlays
         if (currentPopup) {
             currentMap.removeOverlay(currentPopup);
         }
-        
+
         // Dispose of the map
         currentMap.setTarget(null);
         currentMap = null;

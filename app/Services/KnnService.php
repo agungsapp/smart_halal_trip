@@ -10,8 +10,8 @@ use Phpml\Math\Distance\Euclidean;
 class KnnService
 {
     public $lat, $long;
-    private const MAX_DISTANCE = 10; // Batas maksimum jarak dalam kilometer
-
+    private const MAX_DISTANCE = 10; // untuk batas maksimal kilometer
+ 
     public function cariRekomendasi($lat, $long, $selectedJenis = [])
     {
         $this->lat = $lat;
@@ -85,9 +85,9 @@ class KnnService
         $latDelta = deg2rad($lat2 - $lat1);
         $lonDelta = deg2rad($lon2 - $lon1);
 
-        $a = sin($latDelta / 2) * sin($latDelta / 2) +
-            cos(deg2rad($lat1)) * cos(deg2rad($lat2)) *
-            sin($lonDelta / 2) * sin($lonDelta / 2);
+        $a = sin($latDelta / 2) * sin($latDelta / 2) + // buat perhitungan jarak vertikal antara dua titik
+            cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * // menyesuaikan kelengkungan bumi
+            sin($lonDelta / 2) * sin($lonDelta / 2); // menghitung jarak horizontal antara dua titik
 
         $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
 

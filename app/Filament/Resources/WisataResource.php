@@ -10,6 +10,7 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -67,7 +68,16 @@ class WisataResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                SelectFilter::make('id_jenis')
+                    ->label('Jenis')
+                    ->options(Jenis::all()->pluck('nama', 'id'))
+                    ->placeholder('Semua Jenis')
+                    ->query(function (Builder $query, array $data) {
+                        return $query->when(
+                            $data['value'],
+                            fn(Builder $query, $value) => $query->where('id_jenis', $value)
+                        );
+                    })
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
