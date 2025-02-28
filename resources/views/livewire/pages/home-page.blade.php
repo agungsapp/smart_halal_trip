@@ -17,7 +17,7 @@
 												di
 												Bandar Lampung.<br class="d-none d-xl-block" />Rencanakan perjalanan impian Anda dengan mudah!</p>
 										<div class="text-md-start text-center"> <a
-														class="btn btn-success btn-lg me-md-4 mb-md-0 primary-btn-shadow mb-3 border-0" href="#!"
+														class="btn btn-success btn-lg me-md-4 mb-md-0 primary-btn-shadow mb-3 border-0" href="#destination"
 														role="button">Cari Rekomendasi</a>
 										</div>
 								</div>
@@ -111,14 +111,14 @@
 																<div class="carousel-item position-relative active">
 																		<div class="card shadow" style="border-radius:10px;">
 																				<div class="position-absolute translate-middle start-0 top-0">
-																						<img class="rounded-circle fit-cover" src="{{ asset('user') }}/assets/img/testimonial/user1.png"
+																						<img class="rounded-circle fit-cover" src="{{ asset('user') }}/assets/img/testimonial/user1.jpeg"
 																								height="65" width="65" alt="" />
 																				</div>
 																				<div class="card-body p-4">
 																						<p class="fw-medium mb-4">"Sangat membantu! Saya jadi lebih mudah menemukan destinasi wisata
 																								sesuai minat saya. Rekomendasinya juga akurat!"</p>
 																						<h5 class="text-secondary">Budi Santoso</h5>
-																						<p class="fw-medium fs--1 mb-0">Jakarta, Indonesia</p>
+																						<p class="fw-medium fs--1 mb-0">Lampung, Indonesia</p>
 																				</div>
 																		</div>
 																		<div class="card position-absolute z-index--1 w-100 h-100 top-0 mb-3 shadow-sm"
@@ -127,14 +127,14 @@
 																<div class="carousel-item position-relative">
 																		<div class="card shadow" style="border-radius:10px;">
 																				<div class="position-absolute translate-middle start-0 top-0">
-																						<img class="rounded-circle fit-cover" src="{{ asset('user') }}/assets/img/testimonial/user2.png"
+																						<img class="rounded-circle fit-cover" src="{{ asset('user') }}/assets/img/testimonial/user2.jpeg"
 																								height="65" width="65" alt="" />
 																				</div>
 																				<div class="card-body p-4">
 																						<p class="fw-medium mb-4">"Aplikasi ini sangat membantu dalam merencanakan liburan saya. Saya
 																								menemukan tempat yang belum pernah saya kunjungi sebelumnya!"</p>
 																						<h5 class="text-secondary">Dewi Lestari</h5>
-																						<p class="fw-medium fs--1 mb-0">Bandung, Indonesia</p>
+																						<p class="fw-medium fs--1 mb-0">Lampung, Indonesia</p>
 																				</div>
 																		</div>
 																		<div class="card position-absolute z-index--1 w-100 h-100 top-0 mb-3 shadow-sm"
@@ -143,14 +143,15 @@
 																<div class="carousel-item position-relative">
 																		<div class="card shadow" style="border-radius:10px;">
 																				<div class="position-absolute translate-middle start-0 top-0">
-																						<img class="rounded-circle fit-cover" src="{{ asset('user') }}/assets/img/testimonial/user3.png"
-																								height="65" width="65" alt="" />
+																						<img class="rounded-circle fit-cover"
+																								src="{{ asset('user') }}/assets/img/testimonial/user3.jpeg" height="65" width="65"
+																								alt="" />
 																				</div>
 																				<div class="card-body p-4">
 																						<p class="fw-medium mb-4">"Saya tidak menyangka sistem ini bisa merekomendasikan tempat yang
 																								sesuai dengan keinginan saya! Sangat direkomendasikan!"</p>
 																						<h5 class="text-secondary">Andi Wijaya</h5>
-																						<p class="fw-medium fs--1 mb-0">Surabaya, Indonesia</p>
+																						<p class="fw-medium fs--1 mb-0">Lampung, Indonesia</p>
 																				</div>
 																		</div>
 																		<div class="card position-absolute z-index--1 w-100 h-100 top-0 mb-3 shadow-sm"

@@ -19,7 +19,8 @@ class RestoranComponent extends Component
     public function render()
     {
         // Query untuk mengambil data wisata dengan filter pencarian
-        $restaurants = Restaurant::where('nama', 'like', '%' . $this->search . '%')
+        $restaurants = Wisata::where('id_jenis', 13)
+            ->where('nama', 'like', '%' . $this->search . '%')
             ->paginate(6); // Pagination dengan 6 item per halaman
 
         return view('livewire.component.restoran-component', [
