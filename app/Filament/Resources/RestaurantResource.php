@@ -48,10 +48,10 @@ class RestaurantResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('nama')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('id_jenis')
+                Tables\Columns\TextColumn::make('jenis.nama')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('id_kota')
+                Tables\Columns\TextColumn::make('kota.nama')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('lat')

@@ -14,4 +14,9 @@ class Wisata extends Model
     {
         return $this->belongsTo(Jenis::class, 'id_jenis');
     }
+
+    public function kota(): BelongsTo
+    {
+        return $this->belongsTo(Kota::class, 'id_kota');
+    }
 }

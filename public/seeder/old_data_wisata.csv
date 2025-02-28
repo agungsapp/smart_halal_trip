@@ -1,0 +1,138 @@
+id,nama_lokasi,alamat,latitude,longitude,jenis
+1,Taman Gajah,"Bandar Lampung, Lampung",-5.4216519,105.259890136684,1
+2,Puncak Mas,"Bandar Lampung, Lampung",-5.4206317,105.2281133,1
+3,Pasar Bambu Kuning,"Bandar Lampung, Lampung",-5.4104383,105.255796996396,1
+4,Bukit Mas,"Bandar Lampung, Lampung",-5.4562179,105.248399371626,1
+5,Taman Kupu-kupu,"Bandar Lampung, Lampung",-5.420489,105.1864568,1
+6,PKOR Way Halim,"Bandar Lampung, Lampung",-5.3765468,105.27927225675,1
+7,Menara Siger,"Lampung Selatan, Lampung",-5.8653476,105.7497984,1
+8,Pulau Sebesi,"Lampung Selatan, Lampung",-5.94616455,105.490017167009,1
+9,Gunung Rajabasa,"Lampung Selatan, Lampung",-5.7815291,105.6273999,1
+10,Pulau Sebuku,"Lampung Selatan, Lampung",-5.8743286,105.51801179944,1
+11,Pantai Mutun,"Pesawaran, Lampung",-5.5095584,105.2568023,1
+12,Pulau Pahawang,"Pesawaran, Lampung",-5.67578385,105.221272625,1
+13,Pulau Kelagian,"Pesawaran, Lampung",-5.629375,105.221772217356,1
+14,Pulau Tegal,"Pesawaran, Lampung",-5.56741035,105.273997883495,1
+15,Taman Nasional Way Kambas,"Lampung Timur, Lampung",-4.9373689,105.728340324225,1
+16,Gunung Tanggamus,"Tanggamus, Lampung",-5.416667,104.7,1
+17,Danau Ranau,"Lampung Barat, Lampung",-4.88584445,103.903309976648,1
+18,Gunung Pesagi,"Lampung Barat, Lampung",-4.926663,104.1328339,1
+19,Museum Tulang Bawang,"Tulang Bawang, Lampung",-4.48219735,105.264087677489,1
+20,Pulau Pisang,"Pesisir Barat, Lampung",-5.120496,103.845780191696,1
+21,Taman Merdeka,"Metro, Lampung",-5.1147324,105.308333452953,1
+22,Dam Raman,"Metro, Lampung",-5.0620602,105.304383688846,1
+23,"2.1.1
+Gunung","Lampung, Lampung",-5.3469731,104.669105,1
+24,Bukit Barisan,"Lampung, Lampung",-5.2472574,104.149891043564,1
+25,Pulau Sumatra,"Lampung, Lampung",-5.94616455,105.490017167009,1
+26,Pulau,"Lampung, Lampung",-5.94616455,105.490017167009,1
+27,Gunung Seminung,"Lampung, Lampung",-4.9120602,103.9631612,1
+28,Gunung Sekincau,"Lampung, Lampung",-5.083333,104.3,1
+29,Gunung Ratai,"Lampung, Lampung",-5.5132924,105.0951235,1
+30,Gunung Pesawaran,"Pesawaran, Lampung",-5.5,105.083333,1
+31,"Pulau Panggung, Tanggamus","Tanggamus, Lampung",-5.2860222,104.7209851,1
+32,Gunung Sugih,"Lampung, Lampung",-4.9735187,105.2188707,1
+33,Pulau Jawa,"Lampung, Lampung",-5.74594615,105.174337921664,1
+34,Gunung,"Lampung, Lampung",-5.4548495,105.2566948,1
+35,Gunung Terang,"Lampung, Lampung",-5.4871954,104.8744407,1
+36,Taman Agung,"Lampung, Lampung",-5.68053,105.5658422,1
+37,Taman Sari,"Lampung, Lampung",-5.7121296,105.7601467,1
+38,Pulau Jaya,"Lampung, Lampung",-5.5620969,105.643745553067,1
+39,Pulau Tengah,"Lampung, Lampung",-5.590852,105.6930407,1
+40,Taman Baru,"Lampung, Lampung",-5.7373511,105.6626381,1
+41,Tejang Pulau Sebesi,"Lampung, Lampung",-5.9373498,105.5094278,1
+42,Campang Tiga,"Lampung, Lampung",-5.5657607,105.4725207,1
+43,Teluk Lampung,"Lampung, Lampung",-5.4550472,105.2560078,1
+44,Pulau Legundi,"Lampung, Lampung",-5.8142911,105.292999251429,1
+45,Gunung Sugih Baru,"Lampung, Lampung",-5.1364772,105.1929264,1
+46,Teluk Pandan,"Lampung, Lampung",-5.45387985337332,105.261107601438,1
+47,Gunung Rejo,"Lampung, Lampung",-5.5515768,105.0440009,1
+48,Gunung Sari,"Lampung, Lampung",-5.4072677,105.2592208,1
+49,Gunung Raya,"Lampung, Lampung",-5.3450715,105.6103633,1
+50,"Air Bakoman, Pulau Panggung, Tanggamus","Tanggamus, Lampung",-5.3123486,104.6530977,1
+51,Gunung Doh,"Lampung, Lampung",-5.4086021,104.4503949,1
+52,Campang,"Lampung, Lampung",-5.4067681,104.7115683,1
+53,Pulau Benawang,"Lampung, Lampung",-5.4640272,104.594831,1
+54,Teluk Brak,"Lampung, Lampung",-5.6953585,104.6331007,1
+55,Campang Way Handak,"Lampung, Lampung",-5.4401608,104.7991226,1
+56,Gunung Kasih,"Lampung, Lampung",-5.4062739,104.8846413,1
+57,Gunung Tiga,"Lampung, Lampung",-5.0853191,105.4632619,1
+58,Pulau Panggung,"Lampung, Lampung",-4.8643798,104.6644126,1
+59,Gunung Megang,"Lampung, Lampung",-5.3469731,104.669105,1
+60,Gunung Meraksa,"Lampung, Lampung",-5.3105476,104.6971043,1
+61,Tanjung Gunung,"Lampung, Lampung",-5.4116046,105.2604997,1
+62,3. Gunung Tanggamus,"Tanggamus, Lampung",-5.3469731,104.669105,1
+63,Teluk Semangka,"Lampung, Lampung",-5.47504921151395,105.323268084385,1
+64,taman nasional,"Lampung, Lampung",-5.2472574,104.149891043564,1
+65,Gunung Agung,"Lampung, Lampung",-4.4663149,105.1038634,1
+66,Gunung Haji,"Lampung, Lampung",-5.0646568,104.9566433,1
+67,Teluk Dalem Ilir,"Lampung, Lampung",-4.7778168,105.4542727,1
+68,Gunung Batin Baru,"Lampung, Lampung",-4.7386611,105.2411735,1
+69,Gunung Batin Ilir,"Lampung, Lampung",-4.653248,105.2690325,1
+70,Gunung Batin Udik,"Lampung, Lampung",-4.6915898,105.2221731,1
+71,Bukit Kemuning,"Lampung, Lampung",-4.8600688,104.5719299,1
+72,Gunung Betuah,"Lampung, Lampung",-4.8361266,104.7041012,1
+73,Campang Gijul,"Lampung, Lampung",-4.9803161,104.7226258,1
+74,Ogan Campang,"Lampung, Lampung",-5.0161122,104.7365691,1
+75,Sinar Gunung,"Lampung, Lampung",-5.0037878,104.7244765,1
+76,Gunung Besar,"Lampung, Lampung",-4.9093124,104.7597313,1
+77,Gunung Gijul,"Lampung, Lampung",-4.9857702,104.7386558,1
+78,Gunung Sadar,"Lampung, Lampung",-4.9633865,104.7249737,1
+79,Curup Guruh Kagungan,"Lampung, Lampung",-4.8959394,104.8506869,1
+80,Taman Jaya,"Lampung, Lampung",-4.9439053,104.8739316,1
+81,Gunung Maknibai,"Lampung, Lampung",-4.8177775,104.7093834,1
+82,Gunung Raja,"Lampung, Lampung",-4.7893524,104.7228372,1
+83,Gunung Labuhan,"Lampung, Lampung",-4.7582713,104.5971111,1
+84,Negeri Campang Jaya,"Lampung, Lampung",-4.7205458,104.7585757,1
+85,Gunung Katon,"Lampung, Lampung",-5.0209942,104.716843,1
+86,Gunung Ratu,"Lampung, Lampung",-4.3464363,104.7823894,1
+87,Campang Delapan,"Lampung, Lampung",-4.8557359,104.5520175,1
+88,Gunung Katun,"Lampung, Lampung",-4.6501531,104.5478267,1
+89,Campur Asri,"Lampung, Lampung",-4.7266344,104.5447363,1
+90,Taman Asri,"Lampung, Lampung",-5.0271314,105.5037537,1
+91,Gunung Sangkaran,"Lampung, Lampung",-4.501461,104.4752753,1
+92,Curup Patah,"Lampung, Lampung",-4.6868004,104.6394965,1
+93,Gunung Baru,"Lampung, Lampung",-4.7848843,104.5962902,1
+94,Pulau Batu,"Lampung, Lampung",-4.5322724,104.6175821,1
+95,Gunung Cahya,"Lampung, Lampung",-4.3464363,104.7823894,1
+96,Gunung Waras,"Lampung, Lampung",-4.3618105,104.7971837,1
+97,Bukit Gemuruh,"Lampung, Lampung",-4.4821422,104.3596792,1
+98,Bukit Harapan,"Lampung, Lampung",-4.4854228,104.334185,1
+99,Gunung Tapa,"Lampung, Lampung",-4.3969513,105.5538682,1
+100,Gunung Tapa Ilir,"Lampung, Lampung",-4.3973953,105.6075231,1
+101,Ujung Gunung Ilir,"Lampung, Lampung",-4.5592846,105.2038296,1
+102,Ujung Gunung,"Lampung, Lampung",-4.4843749,105.2628828,1
+103,hutan,"Lampung, Lampung",-5.38020225,105.282240433966,1
+104,Sidang Gunung Tiga,"Lampung, Lampung",-4.2076774,105.545902,1
+105,Gunung Katun Malai,"Lampung, Lampung",-4.5500305,104.9805276,1
+106,Gunung Katun Tanjungan,"Lampung, Lampung",-4.5445706,105.0187496,1
+107,Gunung Menanti,"Lampung, Lampung",-4.749216,105.1618999,1
+108,Gunung Timbul,"Lampung, Lampung",-4.6949558,105.1109831,1
+109,Taman Nasional Bukit Barisan Selatan,"Lampung, Lampung",-5.2472574,104.149891043564,1
+110,Taman Nasional Bukit Barisan Selatan.,"Lampung, Lampung",-5.2472574,104.149891043564,1
+111,Pagar Bukit,"Lampung, Lampung",-5.5418427,104.2940766,1
+112,Pagar Bukit Induk,"Lampung, Lampung",-5.6006304,104.3405893,1
+113,Gunung Kemala,"Lampung, Lampung",-5.0173444,103.984823,1
+114,Situs Batu Bedil,"Lampung, Lampung",-4.0173444,104.984823,4
+115,Rumah Daswati,"Lampung, Lampung",-3.0173444,105.984823,4
+116,Buay Pernong,"Lampung, Lampung",-2.0173444,106.984823,4
+117,Masjid Jami' Al-Anwar,"Lampung, Lampung",-1.0173444,107.984823,4
+118,Taman Purbakala Pugung Raharjo,"Lampung, Lampung",-0.0173443999999998,108.984823,4
+119,"Museum Lampung (Museum Negeri Provinsi Lampung ""Ruwa Jurai"")","Lampung, Lampung",0.9826556,109.984823,4
+120,Gedong Aer,"Lampung, Lampung",1.9826556,110.984823,4
+121,Vihara Thay Hin Bio,"Lampung, Lampung",2.9826556,111.984823,4
+122,Istana Sekala Brak,"Lampung, Lampung",3.9826556,112.984823,4
+123,Goa Warak,"Lampung, Lampung",4.9826556,113.984823,4
+124,Situs Batu Berak,"Lampung, Lampung",5.9826556,114.984823,4
+125,Masjid Agung Al-Furqon,"Lampung, Lampung",6.9826556,115.984823,4
+126,Menara Siger,"Lampung, Lampung",7.9826556,116.984823,4
+127,Nuwo Sesat Olok Gading,"Lampung, Lampung",8.9826556,117.984823,4
+128,Benteng Marlborough,"Lampung, Lampung",9.9826556,118.984823,4
+129,Situs Megalitik Batu Brak,"Lampung, Lampung",10.9826556,119.984823,4
+130,Makam Raden Intan II,"Lampung, Lampung",11.9826556,120.984823,4
+131,Masjid Kubah Intan,"Lampung, Lampung",12.9826556,121.984823,4
+132,Taman Budaya Lampung,"Lampung, Lampung",13.9826556,122.984823,4
+133,Museum Mahkota Dipuncak Nur,"Lampung, Lampung",14.9826556,123.984823,4
+134,Rumah Adat Jajar Intan,"Lampung, Lampung",15.9826556,124.984823,4
+135,Rumah Daswati,"Lampung, Lampung",16.9826556,125.984823,4
+136,Situs Prasasti Palas Pasemah,"Lampung, Lampung",17.9826556,126.984823,4

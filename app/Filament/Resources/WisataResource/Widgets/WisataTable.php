@@ -19,7 +19,8 @@ class WisataTable extends BaseWidget
             ->query(Wisata::query()->where('id_jenis', 4)) // Ambil data terbaru
             ->columns([
                 TextColumn::make('nama')->label('Nama Wisata')->searchable(),
-                TextColumn::make('lokasi')->label('Lokasi'),
+                TextColumn::make('lat')->label('latitude'),
+                TextColumn::make('long')->label('longitu'),
                 TextColumn::make('created_at')->label('Dibuat')->dateTime(),
             ]);
         // ->defaultPagination(5);
