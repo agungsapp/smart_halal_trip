@@ -3,13 +3,12 @@
 				<ul class="pagination justify-content-center">
 						{{-- Previous Page Link --}}
 						@if ($paginator->onFirstPage())
-								<li class="page-item disabled" aria-disabled="true" aria-label="@lang('asdasdas')">
-										<span class="page-link" aria-hidden="true">&laquo;</span>
+								<li class="page-item disabled" aria-disabled="true" aria-label="Sebelumnya">
+										<span class="page-link" aria-hidden="true">«</span>
 								</li>
 						@else
 								<li class="page-item">
-										<a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev"
-												aria-label="@lang('asdasdas')">&laquo;</a>
+										<button wire:click="previousPage" class="page-link" rel="prev" aria-label="Sebelumnya">«</button>
 								</li>
 						@endif
 
@@ -31,7 +30,7 @@
 														</li>
 												@else
 														<li class="page-item">
-																<a class="page-link" href="{{ $url }}">{{ $page }}</a>
+																<button wire:click="gotoPage({{ $page }})" class="page-link">{{ $page }}</button>
 														</li>
 												@endif
 										@endforeach
@@ -41,12 +40,11 @@
 						{{-- Next Page Link --}}
 						@if ($paginator->hasMorePages())
 								<li class="page-item">
-										<a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next"
-												aria-label="@lang('pagination.lanjut')">&raquo;</a>
+										<button wire:click="nextPage" class="page-link" rel="next" aria-label="Berikutnya">»</button>
 								</li>
 						@else
-								<li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
-										<span class="page-link" aria-hidden="true">&raquo;</span>
+								<li class="page-item disabled" aria-disabled="true" aria-label="Berikutnya">
+										<span class="page-link" aria-hidden="true">»</span>
 								</li>
 						@endif
 				</ul>

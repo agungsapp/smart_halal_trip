@@ -46,7 +46,9 @@
 
 						<!-- Pagination -->
 						<div class="d-flex justify-content-center mt-4">
-								{{ $restaurants->links() }}
+								{{-- {{ $restaurants->links() }} --}}
+								{{ $restaurants->links('vendor.pagination.custom') }}
+
 						</div>
 				</div><!-- end of .container-->
 		</section>

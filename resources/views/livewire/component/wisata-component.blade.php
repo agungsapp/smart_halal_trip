@@ -46,7 +46,8 @@
 
 						<!-- Pagination -->
 						<div class="d-flex justify-content-center mt-4">
-								{{ $wisatas->links() }}
+								{{-- {{ $wisatas->links() }} --}}
+								{{ $wisatas->links('vendor.pagination.custom') }}
 						</div>
 				</div><!-- end of .container-->
 		</section>
