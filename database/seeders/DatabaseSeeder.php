@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call(JenisSeeder::class);
         $this->call(DataSeederCSV::class);
+        $this->call(FeedbackSeeder::class);
     }
 }

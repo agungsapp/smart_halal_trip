@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\RestaurantResource\Pages;
-use App\Filament\Resources\RestaurantResource\RelationManagers;
-use App\Models\Restaurant;
+use App\Filament\Resources\FeedbackResource\Pages;
+use App\Filament\Resources\FeedbackResource\RelationManagers;
+use App\Models\Feedback;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class RestaurantResource extends Resource
+class FeedbackResource extends Resource
 {
-    protected static ?string $model = Restaurant::class;
+    protected static ?string $model = Feedback::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -26,19 +26,12 @@ class RestaurantResource extends Resource
                 Forms\Components\TextInput::make('nama')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('id_jenis')
-                    ->numeric(),
-                Forms\Components\TextInput::make('id_kota')
-                    ->numeric(),
-                Forms\Components\Textarea::make('alamat')
+                Forms\Components\TextInput::make('kota_asal')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\Textarea::make('ulasan')
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('lat')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('long')
-                    ->required()
-                    ->maxLength(255),
             ]);
     }
 
@@ -48,16 +41,10 @@ class RestaurantResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('nama')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('jenis.nama')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('kota.nama')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('lat')
+                Tables\Columns\TextColumn::make('kota_asal')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('long')
-                    ->searchable(),
+                // Tables\Columns\TextColumn::make('ulasan')
+                //     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -72,6 +59,7 @@ class RestaurantResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -80,19 +68,10 @@ class RestaurantResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListRestaurants::route('/'),
-            'create' => Pages\CreateRestaurant::route('/create'),
-            'edit' => Pages\EditRestaurant::route('/{record}/edit'),
+            'index' => Pages\ManageFeedback::route('/'),
         ];
     }
 }
