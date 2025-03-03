@@ -16,7 +16,7 @@ class DataSeederCSV extends Seeder
 
     public function run(): void
     {
-        $this->seedFromCSV('seeder/data_wisata.csv', 'wisata');
+        $this->seedFromCSV('seeder/data_wisatas.csv', 'wisata');
         $this->seedFromCSV('seeder/resto.csv', 'restoran');
     }
 
@@ -49,7 +49,7 @@ class DataSeederCSV extends Seeder
                 $alamat = $data[1] ?? 'N/A';
                 $lat = $data[2] ?? '0'; // lat
                 $long = $data[3] ?? '0'; // long
-                $idJenis = 13; // Default untuk restoran (wisata kuliner)
+                $idJenis = 8; // Default untuk restoran (wisata kuliner)
             }
 
             // Ekstrak nama kota dari alamat

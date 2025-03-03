@@ -10,8 +10,8 @@ use Phpml\Math\Distance\Euclidean;
 class KnnService
 {
     public $lat, $long;
-    private const MAX_DISTANCE = 10; // untuk batas maksimal kilometer
- 
+    private const MAX_DISTANCE = 40; // untuk batas maksimal kilometer
+
     public function cariRekomendasi($lat, $long, $selectedJenis = [])
     {
         $this->lat = $lat;
