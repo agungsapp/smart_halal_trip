@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('alamat');
             $table->string('lat');
             $table->string('long');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

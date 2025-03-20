@@ -42,6 +42,12 @@ class WisataResource extends Resource
                 Forms\Components\TextInput::make('lat')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\FileUpload::make('image')
+                    ->disk('public')  // Ubah ke public disk
+                    ->directory('foto-wisata')
+                    ->image()
+                    ->maxSize(5120)
+                    ->imagePreviewHeight(100),
             ]);
     }
 
@@ -58,6 +64,11 @@ class WisataResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('lat')
                     ->searchable(),
+                Tables\Columns\ImageColumn::make('image')
+                    ->disk('public')  // Ubah ke public disk
+                    ->height(100)
+                    ->circular(false)
+                    ->label('Foto Wisata'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
