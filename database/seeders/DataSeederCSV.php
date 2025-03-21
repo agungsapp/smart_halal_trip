@@ -17,7 +17,7 @@ class DataSeederCSV extends Seeder
     public function run(): void
     {
         $this->seedFromCSV('seeder/data_wisatas.csv', 'wisata');
-        $this->seedFromCSV('seeder/resto.csv', 'restoran');
+        $this->seedFromCSV('seeder/resto_image.csv', 'restoran');
     }
 
     private function seedFromCSV($csvFilePath, $type): void
@@ -43,6 +43,7 @@ class DataSeederCSV extends Seeder
                 $lat = $data[3] ?? '0'; // latitude
                 $long = $data[4] ?? '0'; // longitude
                 $idJenis = $data[5] ?? null; // jenis
+                $images = $data[6] ?? 'default.png'; // path image
             } else { // restoran
                 $id = null; // Resto tidak punya ID di CSV
                 $nama = $data[0]; // nama
@@ -50,6 +51,7 @@ class DataSeederCSV extends Seeder
                 $lat = $data[2] ?? '0'; // lat
                 $long = $data[3] ?? '0'; // long
                 $idJenis = 8; // Default untuk restoran (wisata kuliner)
+                $images = $data[4] ?? 'default.png'; // path image
             }
 
             // Ekstrak nama kota dari alamat
@@ -69,6 +71,7 @@ class DataSeederCSV extends Seeder
                 'alamat' => $alamat,
                 'lat' => $lat,
                 'long' => $long,
+                'image' => 'foto-wisata/' .  $images,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ];
