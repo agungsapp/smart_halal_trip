@@ -19,7 +19,7 @@ class RestoranComponent extends Component
     public function render()
     {
         // Query untuk mengambil data wisata dengan filter pencarian
-        $restaurants = Wisata::where('id_jenis', 13)
+        $restaurants = Wisata::where('id_jenis', 8)
             ->where('nama', 'like', '%' . $this->search . '%')
             ->paginate(6); // Pagination dengan 6 item per halaman
 

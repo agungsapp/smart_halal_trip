@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Wisata extends Model
 {
     // protected $guarded = ['id'];
-    protected $fillable = ['nama', 'id_jenis', 'id_kota', 'alamat', 'lat', 'long'];
+    protected $fillable = ['nama', 'id_jenis', 'id_kota', 'alamat', 'lat', 'long', 'image'];
 
     public function jenis(): BelongsTo
     {
